@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # Declare a base path for both virtual environments
 venv="${XDG_CACHE_HOME:-$HOME/.cache}/vim/venv"
@@ -19,6 +19,10 @@ fi
 
 # Install or upgrade dependencies
 echo ':: PYTHON 2'
-"$venv/neovim2/bin/pip" install -U neovim PyYAML
+source $venv/neovim2/bin/activate
+pip install -U neovim PyYAML
+deactivate
 echo -e '\n:: PYTHON 3'
-"$venv/neovim3/bin/pip" install -U neovim PyYAML
+source $venv/neovim3/bin/activate
+pip install -U neovim PyYAML
+deactivate
